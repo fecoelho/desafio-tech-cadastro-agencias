@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "03ffabae-bd96-4731-ab46-263da2e41aaf",
+		"name": "desafio-tech-agencias",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14764220",
+		"_collection_link": "https://crimson-meteor-186461.postman.co/workspace/Api-Financas~d27bc1df-ea58-4576-be2c-0d6a2b58cfea/collection/14764220-03ffabae-bd96-4731-ab46-263da2e41aaf?action=share&source=collection_link&creator=14764220"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"posX\": 2.1,\r\n    \"posY\": 3.1,\r\n    \"idZona\": 4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio/cadastrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio",
+						"cadastrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"posX\": 2.1,\r\n    \"posY\": 3.1,\r\n    \"idZona\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio/distancia?posX=-43.95523130893708&posY=-19.863339686240355&zona=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio",
+						"distancia"
+					],
+					"query": [
+						{
+							"key": "posX",
+							"value": "-43.95523130893708"
+						},
+						{
+							"key": "posY",
+							"value": "-19.863339686240355"
+						},
+						{
+							"key": "zona",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
