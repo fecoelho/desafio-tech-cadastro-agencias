@@ -5,24 +5,35 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "agencia")
 public class AgenciaEntity {
-        @Id
-        @Column(name = "id_agencia", nullable = false)
-        @GeneratedValue(strategy=GenerationType.IDENTITY)
-        Integer idAgencia;
+    @Id
+    @Column(name = "id_agencia", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer idAgencia;
 
-        @Column(name = "nome_agencia", nullable = false)
-        String nomeAgencia;
+    @Column(name = "nome_agencia", nullable = false)
+    String nomeAgencia;
 
-        @Column(name = "lng")
-        Double lng; // x
+    @Column(name = "lng")
+    Double lng; // x
 
-        @Column(name = "lat")
-        Double lat; // y
+    @Column(name = "lat")
+    Double lat; // y
 
-    public AgenciaEntity(String nomeAgencia, Double lng, Double lat) {
+    @OneToOne
+    @JoinColumn(name = "id_zona", nullable = false, insertable = false, updatable = false)
+    ZonaEntity zonaEntity;
+
+    @Column(name = "id_zona", nullable = false)
+    Integer idZona;
+
+    public AgenciaEntity() {
+    }
+
+    public AgenciaEntity(String nomeAgencia, Double lng, Double lat, Integer idZona) {
         this.nomeAgencia = nomeAgencia;
         this.lng = lng;
         this.lat = lat;
+        this.idZona = idZona;
     }
 
     public Integer getIdAgencia() {
@@ -39,5 +50,9 @@ public class AgenciaEntity {
 
     public Double getLat() {
         return lat;
+    }
+
+    public Integer getIdZona() {
+        return idZona;
     }
 }

@@ -7,6 +7,8 @@ public record CadastrarRequest(
         @NotNull(message = "Longitude não pode ser nula.")
         Double posX,
         @NotNull(message = "Latitude não pode ser nula.")
-        Double posY
+        Double posY,
+        @NotNull(message = "Zona não pode ser nula.")
+        Integer idZona
 ) {
 }
