@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class ZonaEntity {
     @Id
     @Column(name = "id_zona", nullable = false)
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idZona;
 
     @Column(name = "nome_zona", nullable = false)

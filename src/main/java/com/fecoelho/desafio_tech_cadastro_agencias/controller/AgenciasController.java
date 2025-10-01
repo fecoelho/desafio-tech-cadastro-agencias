@@ -1,6 +1,5 @@
 package com.fecoelho.desafio_tech_cadastro_agencias.controller;
 
-import com.fecoelho.desafio_tech_cadastro_agencias.model.dto.AgenciaDTO;
 import com.fecoelho.desafio_tech_cadastro_agencias.model.entity.AgenciaEntity;
 import com.fecoelho.desafio_tech_cadastro_agencias.model.request.CadastrarRequest;
 import com.fecoelho.desafio_tech_cadastro_agencias.model.response.DistanciaResponse;

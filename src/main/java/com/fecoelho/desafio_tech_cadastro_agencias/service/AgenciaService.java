@@ -1,11 +1,11 @@
 package com.fecoelho.desafio_tech_cadastro_agencias.service;
 
+import com.fecoelho.desafio_tech_cadastro_agencias.exception.ZoneNotFoundException;
 import com.fecoelho.desafio_tech_cadastro_agencias.model.entity.AgenciaEntity;
 import com.fecoelho.desafio_tech_cadastro_agencias.model.request.CadastrarRequest;
 import com.fecoelho.desafio_tech_cadastro_agencias.model.response.DistanciaResponse;
 import com.fecoelho.desafio_tech_cadastro_agencias.repository.AgenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,20 +20,14 @@ public class AgenciaService {
 
     public AgenciaEntity cadastraAgencia(CadastrarRequest cadastrarRequest) {
         AgenciaEntity agenciaEntity = cadastrarRequestToAgenciaEntity(cadastrarRequest);
-
-        try {
-            agenciaRepository.save(agenciaEntity);
-        } catch (DataIntegrityViolationException e) {
-            //todo tratar
-        }
+        agenciaRepository.save(agenciaEntity);
         return agenciaEntity;
     }
 
     public List<DistanciaResponse> getDistancia(Double posX, Double posY, Integer zona) {
         Optional<List<AgenciaEntity>> optionalAgenciaEntities = agenciaRepository.findByIdZona(zona);
-        if (optionalAgenciaEntities.isEmpty())
-            //todo retorna excessao que nao tem nada nessa zona
-            return null;
+        if (optionalAgenciaEntities.isEmpty() || optionalAgenciaEntities.get().isEmpty())
+            throw new ZoneNotFoundException("Não há nenhuma agencia nessa região. :(");
 
         List<AgenciaEntity> agenciaEntities = optionalAgenciaEntities.get();
         List<DistanciaResponse> distanciaResponseList = new ArrayList<>();
